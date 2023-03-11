@@ -16,11 +16,12 @@ vmc1152 = "https://launcher.mojang.com/v1/objects/bb2b6b1aefcd70dfd1892149ac3a21
 vmc1144 = "https://launcher.mojang.com/v1/objects/3dc3d84a581f14691199cf6831b71ed1296a9fdf/server.jar"
 vmc1132 = "https://launcher.mojang.com/v1/objects/3737db93722a9e39eeada7c27e7aca28b144ffa7/server.jar"
 vmc1122 = "https://launcher.mojang.com/v1/objects/3737db93722a9e39eeada7c27e7aca28b144ffa7/server.jar"
-
-def download(v):
+tp = "./"
+df = "server.jar"
+def download(v,dir,filename):
     print("Downloading")
     try:
-        urllib.request.urlretrieve(v, "./server.jar")
+        urllib.request.urlretrieve(v,dir + filename)
     except:
         print("Failed to download")
     if os.path.isfile("./server.jar"):
@@ -30,3 +31,7 @@ def download(v):
         exit()
 def start(x,xmx):
     os.system(f"java -Xmx{xmx}G -jar {x}")
+def elua():
+    file = open("./elua.txt","w")
+    et = file.write("elua = true")
+    file.close()
