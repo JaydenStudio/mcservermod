@@ -18,11 +18,11 @@ vmc1132 = "https://launcher.mojang.com/v1/objects/3737db93722a9e39eeada7c27e7aca
 vmc1122 = "https://launcher.mojang.com/v1/objects/3737db93722a9e39eeada7c27e7aca28b144ffa7/server.jar"
 
 def download(v):
+    print("Downloading")
     try:
-        print("Downloading")
+        urllib.request.urlretrieve(v, "./server.jar")
     except:
         print("Failed to download")
-    urllib.request.urlretrieve(v, "./server.jar")
     if os.path.isfile("./server.jar"):
         print("Done downloading!")
     else:
